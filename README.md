@@ -8,7 +8,7 @@ This tool is only works with `CRXG` files, check the `FILE HEADER` first!
 
 ### Dependencies:
 
-+ (ImageSharp)[https://github.com/SixLabors/ImageSharp]
++ [ImageSharp](https://github.com/SixLabors/ImageSharp)
 
-+ (SharpZipLib)[https://github.com/icsharpcode/SharpZipLib]
++ [SharpZipLib](https://github.com/icsharpcode/SharpZipLib)
 
