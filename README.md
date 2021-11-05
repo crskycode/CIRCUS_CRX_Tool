@@ -12,3 +12,6 @@ This tool is only works with `CRXG` files, check the `FILE HEADER` first!
 
 + [SharpZipLib](https://github.com/icsharpcode/SharpZipLib)
 
+### Staff
+
+I would be very grateful if you can add me to the staff list of translation project.
