@@ -524,13 +524,18 @@ namespace CIRCUS_CRX
             var source = image.CloneAs<Bgra32>();
 
             // Flip alpha channel
-            if (source.TryGetSinglePixelSpan(out var span))
+            source.ProcessPixelRows(accessor =>
             {
-                for (var i = 0; i < span.Length; i++)
+                for (var y = 0; y < source.Height; y++)
                 {
-                    span[i].A = (byte)(0xFF - span[i].A);
+                    var row = accessor.GetRowSpan(y);
+
+                    for (var x = 0; x < source.Width; x++)
+                    {
+                        row[x].A = (byte)(0xFF - row[x].A);
+                    }
                 }
-            }
+            });
 
             var output = new byte[(4 * source.Width * source.Height) + source.Height];
             var dst_p = 0;
