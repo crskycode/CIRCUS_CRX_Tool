@@ -512,7 +512,7 @@ namespace CIRCUS_CRX
             var output = new byte[(3 * source.Width * source.Height) + source.Height];
             var dst_p = 0;
 
-            for (int y = source.Height - 1; y >= 0; y--)
+            for (int y = 0; y < source.Height; y++)
             {
                 // Just use a simple encoding method to make it work.
                 output[dst_p++] = 0;
