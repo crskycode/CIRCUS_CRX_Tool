@@ -9,7 +9,7 @@ namespace CIRCUS_CRX
         {
             if (args.Length != 2)
             {
-                Console.WriteLine("CIRCUS CRX Tool");
+                Console.WriteLine("CIRCUS CRX Tool v1.1");
                 Console.WriteLine("  -- Created by Crsky");
                 Console.WriteLine("Usage:");
                 Console.WriteLine("  Export   : CrxTool -e [image.crx|folder]");
