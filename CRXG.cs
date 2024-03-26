@@ -17,7 +17,7 @@ namespace CIRCUS_CRX
     {
         #region Metadata
 
-        class Clip
+        internal class Clip
         {
             public int field_0 { get; set; }
             public int field_4 { get; set; }
@@ -195,7 +195,7 @@ namespace CIRCUS_CRX
             writer.Flush();
         }
 
-        class Metadata
+        internal class Metadata
         {
             public int InnerX { get; set; }
             public int InnerY { get; set; }
@@ -225,14 +225,14 @@ namespace CIRCUS_CRX
 
             JsonSerializerOptions options = new JsonSerializerOptions();
             options.WriteIndented = true;
-            var json = JsonSerializer.Serialize(metadata, options);
+            var json = JsonSerializer.Serialize(metadata, SourceGenerationContext.Default.Metadata);
             File.WriteAllText(filePath, json);
         }
 
         public void ImportMetadata(string filePath)
         {
             string json = File.ReadAllText(filePath);
-            var metadata = JsonSerializer.Deserialize<Metadata>(json);
+            var metadata = JsonSerializer.Deserialize(json, SourceGenerationContext.Default.Metadata);
 
             _inner_x = metadata.InnerX;
             _inner_y = metadata.InnerY;
