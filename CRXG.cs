@@ -526,11 +526,11 @@ namespace CIRCUS_CRX
             // Flip alpha channel
             source.ProcessPixelRows(accessor =>
             {
-                for (var y = 0; y < source.Height; y++)
+                for (var y = 0; y < accessor.Height; y++)
                 {
                     var row = accessor.GetRowSpan(y);
 
-                    for (var x = 0; x < source.Width; x++)
+                    for (var x = 0; x < accessor.Width; x++)
                     {
                         row[x].A = (byte)(0xFF - row[x].A);
                     }
