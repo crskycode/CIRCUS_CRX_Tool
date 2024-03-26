@@ -1,4 +1,5 @@
 ﻿using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
 using System;
 using System.Collections.Generic;
@@ -259,13 +260,15 @@ namespace CIRCUS_CRX
                 case 0:
                 {
                     using var image = Image.LoadPixelData<Bgr24>(_data, _width, _height);
-                    image.SaveAsPng(filePath);
+                    var encoder = new PngEncoder { ColorType = PngColorType.Rgb };
+                    image.SaveAsPng(filePath, encoder);
                     break;
                 }
                 case 1:
                 {
                     using var image = Image.LoadPixelData<Bgra32>(_data, _width, _height);
-                    image.SaveAsPng(filePath);
+                    var encoder = new PngEncoder { ColorType = PngColorType.RgbWithAlpha };
+                    image.SaveAsPng(filePath, encoder);
                     break;
                 }
             }
